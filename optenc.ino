@@ -29,6 +29,7 @@
 #define MM_PER_TICK			MM_PER_REV/TICKS_PER_REV
 #define METERS_PER_TICK		MM_PER_TICK/1000.0f
 
+//this struct will be written in the EEPROM
 struct MyEEPROMData
 {
 	long a = 0;
@@ -59,6 +60,7 @@ void setup()
 	lcd.print(F("Filameter 1.0"));
 	WL.init();
 	delay(1000);
+	lcd.clear();
 
 	if (!digitalRead(BTN_RESET))
 	{
