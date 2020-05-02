@@ -25,8 +25,8 @@ public:
 
 	/*
 	Call this on device reset or powerup.
-	The whole eeprom is scanned to look for the star header.
-	Once the header is found, its addess is saved and used for next write operations.
+	The whole eeprom is scanned to look for the start header.
+	Once the header is found, its addess is saved and used for subsequent write operations.
 	*/
 	void init()
 	{
@@ -44,7 +44,9 @@ public:
 		}
 		initOk = 1;
 	}
-
+	
+	//Clear EEPROM contents and place the header
+	//call this when things are messed up
 	void format()
 	{
 		for (uint16_t i = 0; i < E2END; i++)
